@@ -41,7 +41,7 @@ void GameBoard::display_board()
 	{
 		for (int i=0; i < board_size; ++i)
 		{
-			if (board[index][i] == 1)
+			if (board[i][index] == 1)
 				cout << "#" << ' ' << flush;
 			else
 				cout << ' ' << ' ' << flush;
@@ -133,7 +133,8 @@ bool GameBoard::kill_cell(int x, int y)
 
 void GameBoard::read_in()
 {
-	const char infile[] = "ext.txt";
+	const char infile[] = "ggg.txt";
+	//const char infile[] = "ext.txt";
 	ifstream in;
 	in.open(infile);
 	int size = 0;

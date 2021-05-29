@@ -2,9 +2,9 @@
 
 int main()
 {
-	GameBoard game(60);
-	//GameBoard game;
-//	game.read_in();
+	//GameBoard game(60);
+	GameBoard game;
+	game.read_in();
 
 	//game.write_state();
 

@@ -5,6 +5,8 @@
 #include <time.h>
 #include <cmath>
 #include <unistd.h>
+#include <fstream>
+#include <string>
 
 
 using namespace std;
@@ -19,10 +21,12 @@ class GameBoard
 {
 
 	public:
+		GameBoard();
 		GameBoard(int size);
 		~GameBoard();
 		void display_board();
 		void progress_state();
+		void read_in();
 
 
 	private:

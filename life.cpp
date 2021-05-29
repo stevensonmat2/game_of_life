@@ -1,5 +1,10 @@
 #include "life.h"
 
+GameBoard::GameBoard()
+{
+	board = NULL;
+}
+
 GameBoard::GameBoard(int size)
 {
 	board_size = size;
@@ -126,7 +131,50 @@ bool GameBoard::kill_cell(int x, int y)
 	return live_neighbor_count == 3? 0 : 1;
 }
 
+void GameBoard::read_in()
+{
+	const char infile[] = "ext.txt";
+	ifstream in;
+	in.open(infile);
+	int size = 0;
 	
+	if (in)
+	{
+		char length[100];
+		string line;
+
+		in.get(length, 100, '\n');
+		in.ignore(100, '\n');
+		
+		size = strlen(length);
+
+		board = new int * [size];
+		for (int l=0; l < size; ++l)
+			board[l] = NULL;
+
+		board_size = size;
+		in.close();
+		in.open(infile);
+		int j = 0;
+
+		while (j < size && in && getline(in, line))
+		{
+			int k = 0;
+
+			for (int i=0; i < size; ++i)
+			{
+				if (!board[i])
+					board[i] = new int [size];
+				
+				board[i][j] = (((int)line[k]) - 48);
+
+				++k;
+			}
+
+			++j;
+		}
+	}
+}	
 
 
 

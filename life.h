@@ -22,7 +22,7 @@ class GameBoard
 
 	public:
 		GameBoard();
-		GameBoard(int size);
+		GameBoard(int x, int y);
 		~GameBoard();
 		void display_board();
 		void progress_state();
@@ -30,7 +30,9 @@ class GameBoard
 
 
 	private:
-		int board_size;
+		int board_width;
+		int board_height;
+		int cell_count;
 		int ** board;
 		bool kill_cell(int, int);
 

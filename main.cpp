@@ -15,8 +15,8 @@ int main()
 	while (true)
 	{
 		usleep(200000);
-		system("clear");
 		game.progress_state();
+		system("clear");
 		game.display_board();
 		
 		--go;
